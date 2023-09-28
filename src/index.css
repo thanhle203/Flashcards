@@ -1,0 +1,57 @@
+#root {
+    max-width:1280px;
+    margin:0;
+    padding:2rem;
+    text-align:center
+    
+}
+
+body {
+    display: flex;
+    place-items: center;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/BT21.jpg);
+    background-size: 100% 100vh;
+    height: 100vh;
+    margin: 0;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+.card {
+    width: 480px;
+    height: 280px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0;
+}
+
+.next {
+    border-radius: 8px;
+    border: none;
+    padding: 8px 20px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    color: white;
+}
+
+.next:hover {
+    background-color: #3d3c3c;
+}
