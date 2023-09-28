@@ -37,7 +37,24 @@ h5 {
     padding: 20px;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 0 2px 4px 0;
+    box-shadow: 0 2px 4px 0 black;
+    cursor: pointer;
+    transition: .2s;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transform: rotateY(var(--rotate-Y, 0));
+}
+
+.card:hover {
+    box-shadow: 0 2px 4px 4px black;
+
+}
+
+.card h3 {
+    text-align: center;
+    line-height: 220px;
 }
 
 .next {
@@ -54,4 +71,28 @@ h5 {
 
 .next:hover {
     background-color: #3d3c3c;
+}
+
+.flip {
+    --rotate-Y: 180deg;
+}
+
+.flip h3{
+    transform: rotateY(180deg);
+}
+
+
+.easy {
+    background-color: #a7eaaed9;
+    opacity: 75%;
+}
+
+.medium {
+    background-color: #ecbe81;
+    opacity: 75%;
+}
+
+.hard {
+    background-color: #ea9177d9;
+    opacity: 75%;
 }
