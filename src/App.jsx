@@ -62,24 +62,55 @@ const data = [
 
 const App = () => {
 
-  const [question, setQuestion] = useState(data[0].question);
-  const [answer, setAnswer] = useState(data[0].answer);
-  const [difficulty, setDifficulty] = useState(data[0].difficulty);
+  const [set, setSet] = useState(data);
+  const [text, setText] = useState({value: ""});
+  const [correct, setCorrect] = useState("");
+  const [card, setCard] = useState(set[0]);
   const [flipped, setFlipped] = useState(false);
 
   const handleFlip = () => {
     setFlipped(!flipped);
   }
 
-  const handleNext = () => {
-    const num = Math.floor(Math.random() * 9 + 1);
+  const shuffle = (array) => {
 
-    setQuestion(data[num].question);
-    setAnswer(data[num].answer);
-    setDifficulty(data[num].difficulty);
+    return array.sort(() => Math.random() - 0.5);
+
+  }
+
+  const handleNext = () => {
+
+    setCard(data[(data.indexOf(card) + 1) > 8 ? 0 : data.indexOf(card) + 1]);
+
+    setCorrect("");
+
+    setText({value: ""});
 
     setFlipped(false);
 
+  }
+
+  const handleBack = () => {
+
+    setCard(data[(data.indexOf(card) - 1) < 0 ? 8 : data.indexOf(card) - 1]);
+
+    setCorrect("");
+
+    setText({value: ""});
+
+    setFlipped(false);
+
+  }
+
+  const handleAnswer = () => {
+
+    if(card.answer == text) {
+      setCorrect("correct");
+    }
+    else {
+      setCorrect("wrong");
+    }
+    
   }
 
   return (
@@ -89,8 +120,17 @@ const App = () => {
         <h4>Do you know BTS as much as you think you do? Test it here with BTS quiz!</h4>
         <h5>Number of Cards: 10</h5>
         <br />
-        <Card question={question} answer={answer} difficulty={difficulty} flipped={flipped} onClick={() => handleFlip()} />
-        <button className='next' onClick={() => handleNext()} >⭢</button>
+        <Card question={card.question} answer={card.answer} difficulty={card.difficulty} flipped={flipped} onClick={() => handleFlip()} />
+        
+        <div>
+          Guess the answer: 
+          <input className={'' + correct} placeholder='Enter answer here...' type='text' name='answer' value={text.value} onChange={(e) => setText(e.target.value)} />
+          <button className='btn' type='submit' value='Submit' onClick={() => handleAnswer()}>Submit Guess</button>
+        </div>
+        
+        <button className='btn' onClick={() => handleBack()} >⭠</button>
+        <button className='btn' onClick={() => handleNext()} >⭢</button>
+        <button className='btn' onClick={() => setSet(shuffle(set))} >Shuffle Cards</button>
       </div>
     </div>
   )

@@ -30,6 +30,10 @@ h5 {
     font-size: 18px;
 }
 
+input {
+    margin-left: 5px;
+}
+
 .card {
     width: 480px;
     height: 280px;
@@ -57,19 +61,19 @@ h5 {
     line-height: 220px;
 }
 
-.next {
+.btn {
     border-radius: 8px;
     border: none;
     padding: 8px 20px;
-    margin-top: 10px;
+    margin: 10px 5px 0px 5px;
     font-size: 20px;
     font-weight: 800;
     background-color: #1a1a1a;
     cursor: pointer;
     color: white;
-}
+} 
 
-.next:hover {
+.btn:hover {
     background-color: #3d3c3c;
 }
 
@@ -95,4 +99,12 @@ h5 {
 .hard {
     background-color: #ea9177d9;
     opacity: 75%;
+}
+
+.correct {
+    border: 3px solid green;
+}
+
+.wrong {
+    border: 3px solid red;
 }
